@@ -1,0 +1,27 @@
+@media (max-width: 767px) {
+  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+  .body-content {
+    padding-top: 50px;
+  }
+}
+
+table {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+th {
+  border: 1px solid black;
+  font-weight:bold;
+}
+
+
+td {
+  border: 1px solid black;
+}
+
+
+.body-content {
+  margin: 15px;
+}

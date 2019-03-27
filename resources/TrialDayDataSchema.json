@@ -1,0 +1,25 @@
+{
+  "salesUnits": [
+    {
+      "id": 0,
+      "name": "string",
+      "country": "string",
+      "currency": "string"
+    }
+  ],
+  "ships": [
+    {
+      "id": 0,
+      "salesUnitId": 0,
+      "name": "string"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 0,
+      "shipId": 0,
+      "bookingDate": "string",
+      "price": 0
+    }
+  ]
+}

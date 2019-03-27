@@ -1,0 +1,71 @@
+<div class="body-content">
+  <div class='container-fluid'>
+    <h3 class="text-center">SalesUnits List</h3>
+    <hr />
+    <div class="form-inline">
+      <label>Start Date:</label>&nbsp;
+      <input type="date" [ngModel]="startDate | date:'yyyy-MM-dd'" (ngModelChange)="startDate = $event" [value]="date | date:'yyyy-MM-dd'" class="form-control">&nbsp;&nbsp;&nbsp;&nbsp;
+      <label>End Date:</label>&nbsp;
+      <input type="date" [ngModel]="endDate | date:'yyyy-MM-dd'" (ngModelChange)="endDate = $event" [value]="date | date:'yyyy-MM-dd'" class="form-control">&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="submit" value="Submit" class="btn btn-primary" (click)="getSalesUnits()" />
+    </div>
+    <br />
+    <table class="table table-bordered tablesorter">
+      <thead>
+        <tr>
+          <td><strong>Sales Unit</strong></td>
+          <td><strong>Total Price</strong></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of salesUnits;" (click)="getBookingDetails(item.salesUnit.id,item.salesUnit.name)">
+          <td><a href="#">{{item.salesUnit.name}}</a></td>
+          <td>{{item.bookingTotal}}  {{item.salesUnit.currency}}</td>
+        </tr>
+        <tr *ngIf="!salesUnits">
+          <td colspan="4">Loading data, Please wait..</td>
+        </tr>
+        <tr *ngIf="salesUnits && salesUnits.length==0">
+          <td colspan="4">No Records</td>
+        </tr>
+      </tbody>
+    </table>
+    <br /><br />
+  </div>
+
+
+  <div *ngIf="bookingsData">
+    <div class='container-fluid'>
+      <h3 class="text-center">Bookings List of {{salesUnitName}}</h3>
+      <hr />
+      <div class="form-inline">
+        <label for="search">Search:</label>
+        <input id="search" type="text" class="form-control" (keyup)="getBookingDetailsBySearch($event.target.value)" />
+      </div>
+      <br />
+      <table class="table table-bordered tablesorter">
+        <thead>
+          <tr>
+            <td><strong>Booking Id</strong></td>
+            <td><strong>Ship Name</strong></td>
+            <td><strong>Booking Price</strong></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of bookingsData;">
+            <td>{{item.bookingId}}</td>
+            <td>{{item.shipName}}</td>
+            <td>{{item.price}}  {{item.currency}}</td>
+          </tr>
+          <tr *ngIf="!bookingsData">
+            <td colspan="3">Loading data, Please wait..</td>
+          </tr>
+          <tr *ngIf="bookingsData && bookingsData.length==0">
+            <td colspan="3">No Records</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
