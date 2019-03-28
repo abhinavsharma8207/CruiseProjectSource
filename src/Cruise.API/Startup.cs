@@ -24,7 +24,7 @@ namespace Cruise.API
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            var connection = @"Data Source=QMDEV\SQL1;initial catalog=CruiseDB;user id=DeliveryTestRepositoryUser;password=Just4Now;";
+            var connection = @"Data Source=DEV\SQL1;initial catalog=CruiseDB;user id=CruiseDBUser;password=Pass4Now;";
             services.AddDbContext<CruiseDbContext>
                 (options => options.UseSqlServer(connection));
 
